@@ -19,10 +19,12 @@ The project is based on Java and Maven, so a Maven-friendly environment would be
 git clone https://github.com/davovoid/libmergea4toa3.git
 ```
 
-* Execute the `clean install` goal from your favourite Maven-friendly IDE or using the following Maven command:
+* Execute the `clean install` goal from your favorite Maven-friendly IDE or using the following Maven command:
 
 ```
 mvn clean install
 ```
 
-* Ready to go!
+* A A4 to A3 merging test will be performed (it may take some minutes). After that, the Maven command line should build successfully.
+
+* Now you are ready to go!
