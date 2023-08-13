@@ -25,6 +25,6 @@ git clone https://github.com/davovoid/libmergea4toa3.git
 mvn clean install
 ```
 
-* A A4 to A3 merging test will be performed (it may take some minutes). After that, the Maven command line should build successfully.
+* An A4 to A3 merging test will be performed (it may take some minutes). After that, the Maven command line should build successfully.
 
 * Now you are ready to go!
