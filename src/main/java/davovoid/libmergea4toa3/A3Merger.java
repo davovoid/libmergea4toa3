@@ -203,14 +203,18 @@ public class A3Merger {
 
 			int maxxposinc = Math.max(workingImgScl.getWidth()/10, 200);
 			int maxyposinc = Math.max(workingImgScl.getHeight(), 200);
+			int maxExpectedxDev = Math.max(workingImgScl.getHeight()/300, 10);
+			double[] xdesvsteps = new double[] {-1d,-0.5d,-0.25d,0d,0.25d,0.5d,1d};
 			
 			for (int xpos = xMinFindRange; xpos<xMaxFindRange; xpos++) {
 				
 				for (int ypos = yMinFindRange; ypos<yMaxFindRange; ypos++) {
 					
-					for(int xdesv = -6; xdesv <=6; xdesv+=3) {
+					for(double xdesvstep : xdesvsteps) { // To create irregular possible angles (pixel-based)
 
-						// Only translation when scaling 1
+						int xdesv = (int) (maxExpectedxDev*xdesvstep);
+						
+						// Only rotation when scaling 1
 						
 						if(scaleRed>2 && xdesv!=0) continue;
 						
@@ -233,8 +237,8 @@ public class A3Merger {
 							
 							System.out.format("CURRENT PROGRESS: %.1f%%\n\n", progress*100d);
 							
-							System.out.format("Current position: x=%d, y=%d, angle=%.5f rad.\n",
-									xpos, ypos, angle);
+							System.out.format("Current position: x=%d, y=%d, angle=%.5f rad / %d px.\n",
+									xpos, ypos, angle, xdesv);
 							
 							System.out.format("Current processing result: x=%d, y=%d, angle=%.5f rad, dev=%.8f.\n\n",
 									xposSmallestDev, yposSmallestDev, angleSmallestDev, smallestDeviation);
